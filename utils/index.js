@@ -7,9 +7,20 @@ const serialize = (res, payload) => {
   cookie.create(res, token);
 };
 
+const deserialize = (req) => {
+  const { access_token } = req.cookies;
+
+  const payload = jwt.verify(access_token);
+
+  if (!payload) return false;
+
+  return payload;
+};
+
 module.exports = {
   hash,
   cookie,
   jwt,
   serialize,
+  deserialize,
 };
