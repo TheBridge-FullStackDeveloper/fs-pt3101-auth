@@ -24,8 +24,8 @@ const send = async ({ to, type }) => {
     console.info("> message: ", message);
 
     const mailerResponse = await mailer.sendMail(message);
-
     console.info("> mail response: ", mailerResponse);
+
     return true;
   } catch (error) {
     console.error("> [email]: ", error.message);
